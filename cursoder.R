@@ -1,8 +1,20 @@
-# Aprendizado de máquina
-#Aula de R
-#Lizandra 01/02/2022
+
+######################################################################## AULA DE R ##############################################################################
+######################################################################################################
+#############################COMANDOS BÁSICOS E SUAS RESPECTIVAS EXPLLICAÇÃO MATEMÁTICAS/ESTATISTISCAS DE FORMAS PRÁTICAS########################################
+############# ESTRUTURADO POR LIZANDRA DUARTE DA SILVA - DOUTORANDA EM ECONOMIA, PELA UNIVERSIDADE FEDERAL DE JUIZ DE FORA ######################################
+#################################################################################################################################################################
+
+#<- Usar esse simbolo para atribuir valor
+# ex: L <- 5 >>> agora o valor de L vai ser lido como 5
+# <- Esse simbolo indica comentário, ou seja, sempre que usar ele antes, não vai ser lido pelo R
+#getwd() <- mostra a pasta onde estou localizado no R
+#dir() <- mosta o conteúdo da pasta
+#setwd("~/") <- eu entro na pasta que eu quero usar -PRECISA DO "~/"
 
 rm(list = ls()) #apaga todo conteúdo da memória
+# c() <- cria vetores, como o exemplo abaixo - obs: o vetor (apenas uma linha ou apenas uma coluna) na maioria das vezes vem no formato de linha, mesmo que seja uma coluna
+#se quiser apresentar em formato coluna <- c(cbind)
 x <- c(1,2,3,4,5)
 n <- length(x)  #comprimento do vetor
 mx <- sum(x)/n #média de x
@@ -18,7 +30,10 @@ rm(list=ls())
 
 # Fechando todos os gráficos
 graphics.off()
+
+#########################################################
 #########      MATRIZES E VETORES #######################
+#########################################################
 
 # Para criar Matrizes precisa dar 3 comando, o primeiro comando do matrix é o conjunto de números que vão entrar na matriz, normalmente na forma de "vetor <- matrix (c())" #
 #depois de fechado o parentese coloca virgula o número de linhas virgula o número de colunas e fecha parenteses para rodar
@@ -70,6 +85,10 @@ J <- t(u)%*%A #o "t" é de transposta
 
 #Não há divisão de matrizes e com a inversão não consegue assegurar que as duas matrizes seja definidas, então não há divisão de matrizes, só soma, subtração e multiplicação
 
+#Dependecia Linear <- Um conjunto de vetores é linearmente dependente se e somente se, qualquer um deles puder ser expressos como uma combinação linear dos vetores restantes, portanto, seu resultado seria zero (vetor nulo)
+#se há dependencia linear (multiplo um do outro), o resultado é zero.
+#É LINEARMENTE INDEPENDENTE, quando é impossível expressar um vetor como multiplo do outro, no plano cartesiano, sua setas NÃO estão sobre uma UNICA linha reta.
+
 # Inversao precisa usar solve, mas para inverter matriz tem que seguir algumas regras, a matriz precisa ser quadrada, caso contrario, não há matriz, e ela precisa ser não singular, ou seja precisa ter posto cheio, o determinate dela tem q ser não nulo
 solve(A) # <= não inverte porque A é singular!!
 solve(E) #o determinante dessa matriz não é zero, mas é quase igual a zero, da erro de arrendondamento, o computador não consegue fazer isso
@@ -80,3 +99,10 @@ C%*%solve(C) #tbm da próxima a identidade
 # Determinante e Posto de matriz
 det(A) #se a matriz tiver determinante igual a zero, ela não tem inversa, ai ela é singular
 qr(C)$rank #da o posto da matriz - se a ordem da matriz for igual a posto da matriz, então ela tem posto cheio e então ela tem inversa
+
+
+
+
+###################################################### REFERÊNCIAS BIBLIOGRÁFICAS ##################################################################################
+#https://www.ufjf.br/rogerio_mattos/ensino/cursosrsm/
+#CHIANG, A. C.; WAINWRIGHT, K. Matemática para economistas. 4ª. São Paulo: Elsevier, 2005.
