@@ -18,18 +18,24 @@ rm(list=ls())
 
 # Fechando todos os gráficos
 graphics.off()
+#########      MATRIZES E VETORES #######################
 
-# Criando Matrizes precisa dar 3 comando, o primeiro comando do matrix é o conjunto de números que vão entrar na matriz, normalmente na forma de "vetor <- matrix (c())" depois de fechado o parentese coloca virgula o número de linhas virgula o número de colunas e fecha parenteses para rodar
+# Para criar Matrizes precisa dar 3 comando, o primeiro comando do matrix é o conjunto de números que vão entrar na matriz, normalmente na forma de "vetor <- matrix (c())" #
+#depois de fechado o parentese coloca virgula o número de linhas virgula o número de colunas e fecha parenteses para rodar
 A <- matrix(c(1,2,3,4),2,2) # O default do R monta por coluna
 B <- matrix(c(1,2,3,4),2,2, byrow = T) # o byron = T faz a matriz em forma de linha
 
+#forma de criar uma matriz sem usar o comando matrix, primeiro eu crio um vetor e depois eu uso o comando din(C) para dimensionar a matriz e por ordem nela
 C <- c(10.4, 5.6, 3.1, 6.4, 21.7, 12.9, 83.2, 69.3, 31.4)
-dim(C) <- c(3,3) #forma de criar uma matriz sem usar o comando matrix, primeiro eu crio um vetor depois eu uso o comando din(C) para dimensionar a matriz e por ordem nela
+dim(C) <- c(3,3)
+### Na multiplicação de vetores, quando a matriz guia é uma coluna, faz o produto normal, se a matriz guia for uma linha, se comportam como um escalar na subratação e adição.
+
 
 # Diagonalizando vetores e matrizes (matriz diagonal é aquela que na diagonal tem pelo menos um elemento não nulo e os demais elementos são nulos)
+#um elemento não nulo é  zero
 D <- rep(1,4) # O rep faz com que se repita o primeiro numero antes da virgula, pela quatidade do número após a virgula
 D <- diag(D) # A função diag, converte o vetor criado acima em uma matriz diagonal - virou uma matriz identidade - Diag também permite tirar uma matriz diagonal de dentro de uma matriz
-c_ <- diag(C) #c_ é o vetor diagonal da matriz C / O UNDERLINE QUE TEM ESSA FUNÇÃO
+c_ <- diag(C) #c_ é o vetor diagonal da matriz C  - O UNDERLINE QUE TEM ESSA FUNÇÃO!!!
 
 
 # numeros de linhas, colunas e elementos
@@ -46,20 +52,23 @@ C[-1,] #posso excluir linhas ou colunas. no caso quero excluir a primeira linha
 C[-1,-3] #excluiu a primeira linha e terceira coluna
 
 
-# Operações Matriciais
+# Operações Matriciais 
 A <- matrix(seq(1,9),3,3) #seq eu uso para criar vários números, de maneira crescente ou decrescente - no caso, está sendo de maneira crescente
 u <- matrix(rep(1,3),3,1)
 
 
-# Soma e subtracao
+# Soma e subtracao -> Só pode ser feita se Aij = Bij, ou seja o número de linhas e colunas forem iguais nas duas matrizes!!!
 E <- A + 3 #somou 3 a cada elemento da matriz
 F <- A + C #soma de matrizes
 G <- A - diag(u) #A diag(u) é uma matriz identidade, pela forma que foi criada, então vai ser a subtração de A pela matriz identidade
 
-# Multiplicacao CUIDADO, NÃO POSSO USAR APENAS ASTERISCO, tenho que envolver ele com dois sinais de porcentagem ****Lembrar que para multiplicar uma matriz eu preciso que o número de colunas da primeira matriz coicida com o número de linhas da segunda matriz****
+# Multiplicacao CUIDADO, NÃO POSSO USAR APENAS ASTERISCO, tenho que envolver ele com dois sinais de porcentagem #
+#****Lembrar que para multiplicar uma matriz eu preciso que o número de colunas da primeira matriz coicida com o número de linhas da segunda matriz****
 H <- A%*%u
 J <- u%*%A # <== vai dar msg de erro!! pq o numero de colunas da primeira pelo numero de linhas da segunda, o que eu posso fazer é a transposta de u multiplicada por A 
 J <- t(u)%*%A #o "t" é de transposta
+
+#Não há divisão de matrizes e com a inversão não consegue assegurar que as duas matrizes seja definidas, então não há divisão de matrizes, só soma, subtração e multiplicação
 
 # Inversao precisa usar solve, mas para inverter matriz tem que seguir algumas regras, a matriz precisa ser quadrada, caso contrario, não há matriz, e ela precisa ser não singular, ou seja precisa ter posto cheio, o determinate dela tem q ser não nulo
 solve(A) # <= não inverte porque A é singular!!
