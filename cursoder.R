@@ -123,13 +123,13 @@ C%*%solve(C) #tbm da próxima a identidade
 #2º) A troca de quaisquer duas linhas/colunas alterará o sinal, mas não o valor númerico do determinante
 #3º) A multiplicação de uma linha/coluna por um escalar "k" multiplicará o valor do determinante por "k"
 #4º) A adição  ou subtração de um multiplo de qualquer linha/coluna não altera o valor do determinante
-#5º) Se uma linha/coluna for multiplo de qualquer outra linha/coluna, o determinante será zero.
+#5º) Se uma linha/coluna for multiplo de qualquer outra linha/coluna, o determinante será zero. Logo, se o determinante for não nulo, as linhas/colunas serão linearmente independente
 
 det(A) #se a matriz tiver determinante igual a zero, ela não tem inversa, ai ela é singular
 
 #Posto da matriz
 
-# O posto da matriz, seja ela quadrada ou não, mostra o número máximo de linhas linear independente (ou seja, não nula) que pode ser encontrado, se esse valor for "r" diz-se que o posto da matriz é "r".
+# O posto da matriz, seja ela quadrada ou não, mostra o número máximo (o menor de mxn, ex: uma matriz 3x5, os maiores determinantes possíveis, seja ele nulo ou não serão de ordem 3)de linhas linearmente independente (ou seja, não nula) que pode ser encontrado, se esse valor for "r" diz-se que o posto da matriz é "r".
 #Ela terá posto cheio, se a ordem da matriz for igual ao posto.
 #se o posto da matriz for igual a sua ordem, então haverá inversa, caso contrário, não há inversa.
 qr(C)$rank #da o posto da matriz - se a ordem da matriz for igual a posto da matriz, então ela tem posto cheio e então ela tem inversa
