@@ -1,16 +1,16 @@
 
 ######################################################################## AULA DE R ##############################################################################
 ######################################################################################################
-#############################COMANDOS BÁSICOS E SUAS RESPECTIVAS EXPLLICAÇÃO MATEMÁTICAS/ESTATISTISCAS DE FORMAS PRÁTICAS########################################
+#############################COMANDOS BÁSICOS E SUAS RESPECTIVAS EXPLLICAÇÃO MATEMÁTICAS/ESTATÍSTISCAS DE FORMAS PRÁTICAS########################################
 ############# ESTRUTURADO POR LIZANDRA DUARTE DA SILVA - DOUTORANDA EM ECONOMIA, PELA UNIVERSIDADE FEDERAL DE JUIZ DE FORA ######################################
 #################################################################################################################################################################
 
 #<- Usar esse simbolo para atribuir valor
-# ex: L <- 5 >>> agora o valor de L vai ser lido como 5
+L <- 5 #>>> agora o valor de L vai ser lido como 5
 # <- Esse simbolo indica comentário, ou seja, sempre que usar ele antes, não vai ser lido pelo R
-#getwd() <- mostra a pasta onde estou localizado no R
-#dir() <- mosta o conteúdo da pasta
-#setwd("~/") <- eu entro na pasta que eu quero usar -PRECISA DO "~/"
+getwd() #<- mostra a pasta onde estou localizado no R
+dir() #<- mosta o conteúdo da pasta
+setwd("~/") <- #eu entro na pasta que eu quero usar -PRECISA DO "~/"
 
 rm(list = ls()) #apaga todo conteúdo da memória
 # c() <- cria vetores, como o exemplo abaixo - obs: o vetor (apenas uma linha ou apenas uma coluna) na maioria das vezes vem no formato de linha, mesmo que seja uma coluna
@@ -36,7 +36,7 @@ graphics.off()
 #########################################################
 
 # Para criar Matrizes precisa dar 3 comando, o primeiro comando do matrix é o conjunto de números que vão entrar na matriz, normalmente na forma de "vetor <- matrix (c())" #
-#depois de fechado o parentese coloca virgula o número de linhas virgula o número de colunas e fecha parenteses para rodar
+#depois de fechado o parentese coloca virgula o número de linhas, virgula o número de colunas e fecha parenteses para rodar
 A <- matrix(c(1,2,3,4),2,2) # O default do R monta por coluna
 B <- matrix(c(1,2,3,4),2,2, byrow = T) # o byron = T faz a matriz em forma de linha
 
@@ -47,7 +47,7 @@ dim(C) <- c(3,3)
 
 
 # Diagonalizando vetores e matrizes (matriz diagonal é aquela que na diagonal tem pelo menos um elemento não nulo e os demais elementos são nulos)
-#um elemento não nulo é  zero
+#um elemento nulo é  zero
 D <- rep(1,4) # O rep faz com que se repita o primeiro numero antes da virgula, pela quatidade do número após a virgula
 D <- diag(D) # A função diag, converte o vetor criado acima em uma matriz diagonal - virou uma matriz identidade - Diag também permite tirar uma matriz diagonal de dentro de uma matriz
 c_ <- diag(C) #c_ é o vetor diagonal da matriz C  - O UNDERLINE QUE TEM ESSA FUNÇÃO!!!
@@ -80,10 +80,10 @@ G <- A - diag(u) #A diag(u) é uma matriz identidade, pela forma que foi criada,
 # Multiplicacao CUIDADO, NÃO POSSO USAR APENAS ASTERISCO, tenho que envolver ele com dois sinais de porcentagem #
 #****Lembrar que para multiplicar uma matriz eu preciso que o número de colunas da primeira matriz coicida com o número de linhas da segunda matriz****
 H <- A%*%u
-J <- u%*%A # <== vai dar msg de erro!! pq o numero de colunas da primeira pelo numero de linhas da segunda, o que eu posso fazer é a transposta de u multiplicada por A 
+J <- u%*%A # <== (pelo que foi desenvolvido no  propositalmente no R deu erro) aparece msg de erro!! pq o numero de colunas da primeira pelo numero de linhas da segunda são diferente, o que eu posso fazer, no caso em específico, é a transposta de u multiplicada por A 
 J <- t(u)%*%A #o "t" é de transposta
 
-#Não há divisão de matrizes e com a inversão não consegue assegurar que as duas matrizes seja definidas, então não há divisão de matrizes, só soma, subtração e multiplicação
+#Não há divisão de matrizes, com a inversão não consegue assegurar que as duas matrizes seja definidas, então não há divisão de matrizes, só soma, subtração e multiplicação
 
 #Dependecia Linear <- Um conjunto de vetores é linearmente dependente se e somente se, qualquer um deles puder ser expressos como uma combinação linear dos vetores restantes, portanto, seu resultado seria zero (vetor nulo)
 #se há dependencia linear (multiplo um do outro), o resultado é zero.
@@ -115,8 +115,23 @@ solve(C)
 solve(C)%*%C #a transposta de uma matriz multiplicada por ela, da uma matriz identidade
 C%*%solve(C) #tbm da próxima a identidade
 
-# Determinante e Posto de matriz
+# Determinante 
+# O determinante é uma matriz quadrada denotada por |A| e é um ESCALAR (número) unicamente definido, pode ter valor positivo ou negativo, o símbolo || não expressa valor absoluto.
+# também é usado para verificação de dependencia linear, pois quando o determinante de uma matriz for igual a zero, é pq há dependência linear entre as linhas.
+#Propriedades do determinante:
+#1º) O determinante de uma matriz tem o mesmo valor de sua transposta
+#2º) A troca de quaisquer duas linhas/colunas alterará o sinal, mas não o valor númerico do determinante
+#3º) A multiplicação de uma linha/coluna por um escalar "k" multiplicará o valor do determinante por "k"
+#4º) A adição  ou subtração de um multiplo de qualquer linha/coluna não altera o valor do determinante
+#5º) Se uma linha/coluna for multiplo de qualquer outra linha/coluna, o determinante será zero.
+
 det(A) #se a matriz tiver determinante igual a zero, ela não tem inversa, ai ela é singular
+
+#Posto da matriz
+
+# O posto da matriz, seja ela quadrada ou não, mostra o número máximo de linhas linear independente (ou seja, não nula) que pode ser encontrado, se esse valor for "r" diz-se que o posto da matriz é "r".
+#Ela terá posto cheio, se a ordem da matriz for igual ao posto.
+#se o posto da matriz for igual a sua ordem, então haverá inversa, caso contrário, não há inversa.
 qr(C)$rank #da o posto da matriz - se a ordem da matriz for igual a posto da matriz, então ela tem posto cheio e então ela tem inversa
 
 
