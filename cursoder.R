@@ -22,7 +22,8 @@ vx <- t(x-mx)%*%(x-mx)/n  #variancia do x
 ls() #mostra as váriaveis que tem na memória
 # clt + enter é a mesma coisa que apertar run
 # source executa o arquivo todo criado, tudo que tiver sido criado, ele vai executar
-download.file #para fazer dowload de arquivo tem q fazer o passo acima e não esquecer que após o link tem que colocar virgula e dar algum nome com ponto e formato desejado
+download.file("http://www.ufjf.br/rogerio_mattos/files/2018/05/AME-treinamento-de-R.zip","arquivo.zip")
+#para fazer dowload de arquivo tem q fazer o passo acima e não esquecer que após o link tem que colocar virgula e dar algum nome com ponto e formato desejado
 unzip("arquivo.zip") #para dezipar tudo que tem na pasta
 
 # Removendo variáveis e objetos da memória
