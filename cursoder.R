@@ -87,13 +87,32 @@ J <- t(u)%*%A #o "t" é de transposta
 
 #Dependecia Linear <- Um conjunto de vetores é linearmente dependente se e somente se, qualquer um deles puder ser expressos como uma combinação linear dos vetores restantes, portanto, seu resultado seria zero (vetor nulo)
 #se há dependencia linear (multiplo um do outro), o resultado é zero.
-#É LINEARMENTE INDEPENDENTE, quando é impossível expressar um vetor como multiplo do outro, no plano cartesiano, sua setas NÃO estão sobre uma UNICA linha reta.
 
-# Inversao precisa usar solve, mas para inverter matriz tem que seguir algumas regras, a matriz precisa ser quadrada, caso contrario, não há matriz, e ela precisa ser não singular, ou seja precisa ter posto cheio, o determinate dela tem q ser não nulo
+#É LINEARMENTE INDEPENDENTE, quando é impossível expressar um vetor como multiplo do outro, no plano cartesiano, sua setas NÃO estão sobre uma UNICA linha reta. A independencia liner garante que a soluçãoa é única.
+
+#Matriz transpostas <- A' -> 
+#a linhas e colunas são intercambiadas, ou seja, se uma matriz A é (mxn) então sua transposta é (nxm). Uma matriz quadrada (nxn), entretanto, possui transposta com a mesma dimensão.
+#Propriedade das transpostas
+#1º)A transposta, da transposta é a matriz original (A')'=A
+#2º) A transposta de uma soma é a soma das transposta <- (A+B)' = A'+B'
+#3º) A transposta de um produto é o produto das transpostas na ordem inversa <- (AB)'= B'A' ->
+
+# Inversao de matrizes
+#precisa usar solve, mas para inverter matriz tem que seguir algumas regras:
+# 1-)a matriz precisa ser quadrada (nº de linhas = nº de colunas), condição necessária para invertibilidade. Obs: nem toda matriz quadrada tem uma inversa!como por exemplo uma matriz quadrada singular 
+# 2º)precisa ser não singular, ou seja precisa ter posto cheio, o determinate dela tem q ser não nulo
+#matrizes singulares contém uma linha que é multipla de outra linha, tornando ela nula.
+## Uma matriz nula tem seus elementos todos iguais a zero, não precisa ser quadrada, mas quando for se torna uma matriz idempotente. Mas se não for quadrada pode gerar dimensões diferentes.
+#Matriz identidade - faz o papel de um escalar é quadrada 1 - tem números 1 em sua diagonal principal e números zero em todos os outros lugares <- IA=AI=A -> é especial pois possibilita inserir ou remover uma matriz identidade durante o processo de multiplicação sem afetar o produto de matrizes
+#pela lei associativa <- A(mxn) * I(nxn) * B(nxp) =(AI)B = A(mxn) * B(nxp) <- o que mostra que presença ou ausência de I não afeta o produto #! Uma matriz identidade ao quadrado, ou multiplicada por ela mesma n vezes é igual a ela mesma, o que é chamado de matriz idempotente.
+#3º) Se existir uma inversa, ela será única (o único modo para que a solução de uma matriz seja única é que suas linhas/colunas sejam linearmente independente).
+#se as linhas e/ou colunas da matriz forem linearmente independente é uma condição suficiente (o que impede a inconsistência). Quando a matriz for quadrada e linearmente independente, será constituida uma matriz que atende a condição necessária e suficiente para invertibilidade.
+
+#exemplos feitos no R e seus respectivos resultados
 solve(A) # <= não inverte porque A é singular!!
 solve(E) #o determinante dessa matriz não é zero, mas é quase igual a zero, da erro de arrendondamento, o computador não consegue fazer isso
 solve(C)
-solve(C)%*%C #a teansposta de uma matriz multiplicada por ela, da uma matriz identidade
+solve(C)%*%C #a transposta de uma matriz multiplicada por ela, da uma matriz identidade
 C%*%solve(C) #tbm da próxima a identidade
 
 # Determinante e Posto de matriz
