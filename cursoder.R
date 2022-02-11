@@ -135,6 +135,63 @@ det(A) #se a matriz tiver determinante igual a zero, ela não tem inversa, ai el
 #se o posto da matriz for igual a sua ordem, então haverá inversa, caso contrário, não há inversa.
 qr(C)$rank #da o posto da matriz - se a ordem da matriz for igual a posto da matriz, então ela tem posto cheio e então ela tem inversa
 
+#=================================================================
+
+#  OPERADORES LOGICOS: <, <=, >, >=, == e != (desigualdade) em geral após o uso de um operador lógico, haverá uma resposta lógica: TRUE OR FALSE
+#=================================================================
+1 < 2 #true
+2 == 2 
+3 >= 4 #false,pq é falso, 3 não é maior e nem menor que 4
+A != C #Podeos usar operadores lógicos para as Matrizes
+A < 5
+
+
+#=================================================================
+
+#  FUNCOES DE CONTROLE ###toda função de controle eu abro e fecho a operação com sinal de colchetes###
+#=================================================================
+
+# Funçao 'if-else' :primeiro ela testa uma condição e se ela for verdadeira, ela executa uma certa operação, senão, vai executar outra operação que é a função else
+opcao <- 0
+if (opcao == 1) {print("Menino")} else {print("Menina")} #imprimiu "Menina" pois opção é zero, se fosse 1 seria menino
+
+# Funçao 'if-elseif-else': Posso aliar varias opções alternativas #se mais/se mais
+idade <- 70
+if (idade < 18) {
+  grupo <- 1
+} else if (idade < 35) {
+  grupo <- 2
+} else if (idade < 65) {
+  grupo <- 3
+} else {
+  grupo <- 4
+}
+
+# Funçao 'while' (enquanto) #repete varias vezes o mesmo procedimento até que essa função seja satisfeita, é um looping
+w <- 0
+while (w < 10) {
+  w <- w + 1
+  print(w)
+} 
+
+##enquanto w for menor que 10, ele vai aparecendo (no caso eu somei um ao próprio valor)
+
+}
+# Funcao 'for': faz o mesmo que o while, só que na while eu não defino um defino um limite superior para controlar valores e na função for sim
+for (i in 1:10) {
+  print(i)
+}
+
+# Criando uma matriz identidade com 'for'
+I <- matrix(rep(0,9),3,3)
+for (i in 1:3) {
+  I[i,i] <- 1
+}
+print(I)
+
+#I[i,i] <- 1 nesse caso ele entendeu que na matriz I para eu pegar nas casas que tem indices iguais, vamos atribuir o valor 1
+  
+
 
 
 
