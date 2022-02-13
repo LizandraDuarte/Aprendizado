@@ -251,6 +251,42 @@ subset(estados,estados$POP>5000000 & estados$PIB2018 <280000, c(PIB2018,TMCAP))
 
 # Simbolos logicos: & ("e") | ("ou")
 
+ GRAFICOS
+
+# Ver mais detalhes no capítulo 12 (Graphical Procedures) de: 
+#     Venables and Smith. An Introduction to R. 
+#     em https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf
+#   
+#======================================================================
+download.file("https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf","arquivo.pdf")
+
+plot(estados) #para plotar uma matriz de graficos, no caso por ser uma tabela, ela posta os dados de cada coluna de 2 a2 para vermos se tem correlações
+plot(estados[4:6]) # aqui, estados[4:6] = estados[,4:6]
+
+x <- estados$PIB2018 #to dando nome as variaveis
+y <- estados$POP
+w <- estados$TMCAP
+sg <- estados$Sigla
+
+
+plot(x,y)
+barplot(x)
+graphics.off() #apaga todos os gráficos
+
+# Customizando um gráfico
+plot(x,y,  type = "p", col = 2, cex = 0.4, main = "PIB vs POP") #type <o "p" é para dizer que pe para plotar pontos; col é a abreviatura de cor, 2 é o numero da cor vermelha, o cex é o tamanho do ponto e o main é o titulo
+plot(x,y,  type = "l", col = 4, cex = 0.3, main = "PIB vs POP")
+plot(x,y,  type = "c", col = 4, cex = 0.3, main = "PIB vs POP")
+plot(x,y,  type = "b", col = 4, cex = 0.9, main = "PIB vs POP",
+     sub = "Dados para o ano de 2018", xlab = "PIB", ylab = "POP") #
+
+barplot(x, names.arg = sg, col = 2, main = "PIB de 2018",
+        xlab = "Estados", ylab = "R$ Milhões", space = 1) #barplot é um gráfico de barra. names.arg é o nome dos argumentos, xlab é o nome dos dados para x e o msm para y, space é o espaçamento.
+box() #colocar uma porta no grafico
+
+pie(y,sg,main = "Distribuição Estadual da População Brasileira - 2018")#grafico de pizza
+
+
   
 
 
