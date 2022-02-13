@@ -190,6 +190,67 @@ for (i in 1:3) {
 print(I)
 
 #I[i,i] <- 1 nesse caso ele entendeu que na matriz I para eu pegar nas casas que tem indices iguais, vamos atribuir o valor 1
+
+######################################################13/02/2022
+
+# LENDO DADOS 
+# data() mostra os dados embutidos no próprio R
+data()
+
+# Dados Estaduais para as seguintes variáveis:
+#  - PIB 2018 - Fonte IBGE
+#  - População 2018 - Fonte IBGE
+#  - Temperatura Média da Capital do Estado - Fonte Wikipédia
+#    (acesso em 2/3/2021)
+# função "read.table ()" vai ler o arquivo que vc inserir dentro do parenteses em aspas.
+# head é sobre a primeira linha, se for ler a primeira linha como título <- head =T que quer dizer verdadeiro.
+#sep <-para dizer qual separador vai ser utilizado 
+#dec <- para mostrar qual caracter representa o separador de casa decimal
+estados <- read.table("estados.csv", head=T, sep=";",dec=",")
+estados
+
+# Informações sobre o objeto de dados lido
+mode(estados) #informa qual tipo de objeto <- ex: list é combinado varias coisas, como palavra e número, no vetor já não pode.
+class(estados) #informa a estrutura de dados, no caso é um data. frame que tem formato tabela, se fosse matriz só poderia ter numero, na tabela pode ter número e letras.
+str(estados) #dá o tipo de dado que é cada coluna, se é número, letra...  se tiver como letra aparece com aspas
+
+# Vendo os dados
+estados$Estado #  o cifrlão faz com que mostre apenas a primeira coluna
+
+# vendo os dados de várias outras formas
+cbind(estados$PIB) #função cbind faz linha virAR coluna e o mostra qual coluna eu quero
+head(estados) #mostra só o comecinho da base de dados 6 primeiras 
+tail(estados) #mostra o finalzinho da tabela 6 ultimas
+estados[3,4] #o colchetes para encontrar a coordenada que eu quero
+estados[10:15,4:5] #uma subregião
+estados$POP[10:15]
+
+
+# Nomes de variáveis na tabela de dados (data.frame)
+names(estados) #mostra os titulos de cada coluna
+colnames(estados) #tbm mostra titulos da colua
+colnames(estados)[1] #titulos apenas da primeira coluna, pq ta indexado no colchetes
+colnames(estados)[2]
+rownames(estados) #titulos das linhas
+rownames(estados)[5:10]
+
+# Mudando o nome de uma variável na tabela de dados (data.frame)
+colnames(estados)[4] <- "PIB2018" #colnames pode ser usado para mudar o número do titulo dessa forma, colocando o novo titulo em aspasn
+
+# Analise basica dos dados
+summary(estados) #da estatisticas descritivas basicas dos dados
+
+# Filtrando os dados
+subset(estados,estados$POP>5000000) #subset é para fazer o subconjunto, primeira informação é qual tabela eu quero extrair o subconjunto, depois informo uma condição, nesse caso, foi de a pop(que está com cifrão) maior que 5 milhões
+subset(estados,estados$POP>5000000 & estados$PIB2018 <280000) #o & da a função de "e" na condição
+estados[estados$POP>5000000,] #da para fazer a mesma coisa que o subset, TERMINO COM VIRGULA
+estados[estados$POP>5000000 & estados$PIB2018 <280000,]
+subset(estados,estados$POP>5000000 & estados$PIB2018 <280000, c(PIB2018,TMCAP))
+
+# Simbolos comparativos < <= > >= 
+
+# Simbolos logicos: & ("e") | ("ou")
+
   
 
 
