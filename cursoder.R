@@ -5,12 +5,127 @@
 ############# ESTRUTURADO POR LIZANDRA DUARTE DA SILVA - DOUTORANDA EM ECONOMIA, PELA UNIVERSIDADE FEDERAL DE JUIZ DE FORA ######################################
 #################################################################################################################################################################
 
+#Atribuição de valor
+=
+<-
+# os doissimbolos acima geram o mesmo resultado ex:
+delta <- 8
+delta = 8
+ ####Declaração de variável ocorre de forma implicita conforme o dado
+delta <- 8 # definiu q ela é tipo real (um valor continuo que suporta casa decimal)
+delata <- 8L # a letra "L" é para atribuir  8 um valor inteiro
+logico <- TRUE #P/ valores lógicos usa TRUE or FALSE me maiusculo ou abreviação T ou F
+caractere <- "texto" #usa aspas simples ou dupla para ser texto
+
+################ O R é uma linguagem vetorial!!!! ####################
+
+#######################################################################################
+###################### OPERADORES #################################
+###########################################################
+# adição <- +
+# subtração <- -
+# multiplicação <- *
+# Divisão <- /
+# potencia <- ^
+# Modo <- %%
+# Divisão de inteiros %/%
+
+#####################################################################################
+########################## OPERADORES LÓGICOS ###################################
+#####################################################################################
+
+# Menor que  <
+# menor ou igual que   <=
+# maior ou igual que   =>
+# igual == ######diferente do =  de atribuição****
+# diferente !=
+# negação !
+# ou  |
+# e   &
+
+###############################################################################################################
+###################### Principais funções matemáticas ##################################################
+#############################################################################################################
+
+
+# raiz quadrada == sqrt
+# soma == sum
+# logaritimo na base 10 == log
+# cosseno == cos
+# seno == sim
+# tangente == tan
+# exponencial == exp
+
+
+#Para instalar pacotes/bibliotecas - p/ implementação de graficos, estatisticas, ML - ficam disponiveis nos repositórios
+install.packages("dplyr", dependencies=TRUE) #dependencia é para caso esse pacote tenha dependencias de outros pacotes
+#Dplyr <- para manipulação de dados
+#Foreign <- importar dados de outtras ferramentas (SAS, SPSS...)
+#Ggplot2 <- vizualização de dados
+######QUANDO VC INSTALA UM PACOTE ELE NÃO ESTÁ PRONTO PARA USAR, VOCÊ PRECISA CARREGAR O PACOTE MEMÓRIA, PA ISSO:
+library(Dplyr) #quando carrega não precisa colocar entre aspas, apenas quando instala!
+
 #<- Usar esse simbolo para atribuir valor
 L <- 5 #>>> agora o valor de L vai ser lido como 5
 # <- Esse simbolo indica comentário, ou seja, sempre que usar ele antes, não vai ser lido pelo R
-getwd() #<- mostra a pasta onde estou localizado no R
+getwd() #<- mostra a pasta onde estou localizado no R - saber o diretório padrão 
 dir() #<- mosta o conteúdo da pasta
-setwd("~/") <- #eu entro na pasta que eu quero usar -PRECISA DO "~/"
+setwd("~/") <- #eu entro na pasta que eu quero usar -PRECISA DO "~/" - altera o diretório padrão
+
+########### PARA TRABALHAR COM NOTEBOOK ################
+# O diretório de trabalho é o local do arquivo Rmd <se vc alterar o diretório de trabalha, só dura durante o bloco>
+
+# Para encerrar o R pode ser da forma usual ou:
+quit()
+Save workspace image to c:/dados/.RData?[Y/N] #se vc tiver variáveis/pacotes ele fica salvo ali e vc tera de novo carregado na memória
+class("") #para saber o tipo de dado
+save(objetos, file="arquivo.Rdata") #para salvar 
+#para carregar o objeto salvo
+load(file="arquivo.Rdata")
+
+########## Vizualização de dados* ##############
+plot() #função genérica pois produz a vizualização conforme o objeto
+hist() #histograma
+boxplot() #gera gráfico bloxpot
+       .
+       .
+       .
+#########################################################
+############ TIPOS DE DADOS ##################
+#####################################################
+# character <- texto
+# numeric <- número, suporta casas decimais/valor continuo
+# inteiro 
+# fator <- vetor de texto que pode ser ordenado
+
+######################### ESTRUTURA DE DADOS #####################################
+#####################################################################################
+# R, É UMA LINGUAGEM VETORIAL, POR ISSO, QUANDO FOR CRIAR UM VETOR DE MAIS DE UMA POSIÇÃO USO c() QUE É UMA ABREVIATURA DE COMBINE
+X <- c(1,2,3,4,5,6) #criei um vetor de 6 posições, o R é indexado em base 1 e não em zero, então começa a contar 1 a partir da primeira posição
+X #lê todo o vetor
+X[1] # lê a posição 1
+X[1] <- 10 #altera o valor da posição 1
+## matriz só permite um tipo de dado
+
+#*****DATA FRAME
+# semelhante a matrizes, porém permite diferentes tipos de dados por coluna <se assemelha a uma tabela/planilha
+#podemos acessar o a coluna usando o cifrão < dataframe$coluna > assim vou ler apenas o nome da coluna
+
+#***** LISTA
+# tem vários conjuntos de dados, sequencia de objetos q são diferentes
+
+#***** FATORES
+# VARIÁVEIS CATEGÓRICAS
+
+# EX 
+# dados=c(1,2,3) pode ser transformado em fator > dados=fator(dados) > agora podem ser ordenados pq o fator pode ser ordenado.
+
+####################################################################################################################
+########################### FUNÇÕES ########################################################################
+
+
+
+
 
 rm(list = ls()) #apaga todo conteúdo da memória
 # c() <- cria vetores, como o exemplo abaixo - obs: o vetor (apenas uma linha ou apenas uma coluna) na maioria das vezes vem no formato de linha, mesmo que seja uma coluna
@@ -36,10 +151,15 @@ graphics.off()
 #########      MATRIZES E VETORES #######################
 #########################################################
 
+
+
 # Para criar Matrizes precisa dar 3 comando, o primeiro comando do matrix é o conjunto de números que vão entrar na matriz, normalmente na forma de "vetor <- matrix (c())" #
 #depois de fechado o parentese coloca virgula o número de linhas, virgula o número de colunas e fecha parenteses para rodar
 A <- matrix(c(1,2,3,4),2,2) # O default do R monta por coluna
 B <- matrix(c(1,2,3,4),2,2, byrow = T) # o byron = T faz a matriz em forma de linha
+
+#*******************matrizes permiti apenas um unico tipo de dados/matriz pode ter nome nas linhas e colunas
+Volcano[linha,culuna] #para ler a linha ou a coluna que vc quer, vc especifica qual é usando antes o Volcano
 
 #forma de criar uma matriz sem usar o comando matrix, primeiro eu crio um vetor e depois eu uso o comando din(C) para dimensionar a matriz e por ordem nela
 C <- c(10.4, 5.6, 3.1, 6.4, 21.7, 12.9, 83.2, 69.3, 31.4)
@@ -293,5 +413,6 @@ pie(y,sg,main = "Distribuição Estadual da População Brasileira - 2018")#graf
 
 
 ###################################################### REFERÊNCIAS BIBLIOGRÁFICAS ##################################################################################
+#Curso formação para cientista de dados com pythin e R - Fernando Amaral - UDEMY
 #https://www.ufjf.br/rogerio_mattos/ensino/cursosrsm/
 #CHIANG, A. C.; WAINWRIGHT, K. Matemática para economistas. 4ª. São Paulo: Elsevier, 2005.
