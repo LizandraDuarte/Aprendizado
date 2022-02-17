@@ -56,6 +56,19 @@ caractere <- "texto" #usa aspas simples ou dupla para ser texto
 # tangente == tan
 # exponencial == exp
 
+##################################3Para importar dados
+read.csv() #mais comum a salva em csv
+
+#para importar de banco de dados pode usar o pacote RODBC
+odbcDriveConnect() # faz a conexão com um banco de dados
+sqlQuery()# executa um consulta e transforma essa consulta em um objeto data.frame do R
+odbcClose() #encerra a conexão
+
+#Para importar planilhas em excel usa o pacote XLSX e transforma em um dataframe através do read.xlsx
+
+# Pacote foreign é para importar dados de outros formatos ex:
+read.arff()
+
 
 #Para instalar pacotes/bibliotecas - p/ implementação de graficos, estatisticas, ML - ficam disponiveis nos repositórios
 install.packages("dplyr", dependencies=TRUE) #dependencia é para caso esse pacote tenha dependencias de outros pacotes
@@ -119,11 +132,6 @@ X[1] <- 10 #altera o valor da posição 1
 
 # EX 
 # dados=c(1,2,3) pode ser transformado em fator > dados=fator(dados) > agora podem ser ordenados pq o fator pode ser ordenado.
-
-####################################################################################################################
-########################### FUNÇÕES ########################################################################
-
-
 
 
 
@@ -407,6 +415,16 @@ box() #colocar uma porta no grafico
 pie(y,sg,main = "Distribuição Estadual da População Brasileira - 2018")#grafico de pizza
 
 
+####################################################################################################################
+########################### PRINCIPAIS FUNÇÕES ########################################################################
+head() # vizualizar primeiras linhas de um conjunto de dados
+tail() #vizualizar últimas linhas de um conjunto de dados
+summary() #resumo estatístico de um conjunto de dados
+file.choose() #caminho de arquivos
+colbind()# acrescenta uma linha a um conjuto de dados
+predict() #preve
+~ #para formulas, separa as variaveis dependentes das variáveis independentes
+# se eu for usar todas as demais variaveis como independente é só por um ponto depois de ~ ex: variavel independente ~ . 
   
 
 
