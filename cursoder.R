@@ -285,7 +285,7 @@ if (opcao == 1) {print("Menino")} else {print("Menina")} #imprimiu "Menina" pois
 
 # Funçao 'if-elseif-else': Posso aliar varias opções alternativas #se mais/se mais
 idade <- 70
-if (idade < 18) {
+if (idade < 18) { #os colchetes é usado para delimitar as funções, caso não haja, não precisa dele. e é o que abre na primeira linha e o que fecha na linha abaixo.
   grupo <- 1
 } else if (idade < 35) {
   grupo <- 2
@@ -294,6 +294,10 @@ if (idade < 18) {
 } else {
   grupo <- 4
 }
+
+###Função ifelse > (condição, retorna se Verdadeiro, retorna se Falso) consegue o mesmo efeito acima mas de uma forma mais compacta
+
+
 
 # Funçao 'while' (enquanto) #repete varias vezes o mesmo procedimento até que essa função seja satisfeita, é um looping
 w <- 0
@@ -304,7 +308,14 @@ while (w < 10) {
 
 ##enquanto w for menor que 10, ele vai aparecendo (no caso eu somei um ao próprio valor)
 
-}
+##LAÇOS
+#*for(var in seq)
+{
+ } #ele percorre o numero de vezes da variavel em sequência
+
+#pode ser usado o comando "break" para intorroper o laço.
+#o comando "next" pula para a proxima execução do laço
+
 # Funcao 'for': faz o mesmo que o while, só que na while eu não defino um defino um limite superior para controlar valores e na função for sim
 for (i in 1:10) {
   print(i)
@@ -318,6 +329,11 @@ for (i in 1:3) {
 print(I)
 
 #I[i,i] <- 1 nesse caso ele entendeu que na matriz I para eu pegar nas casas que tem indices iguais, vamos atribuir o valor 1
+
+#para escrever uma função
+#* nome <- function(parametros) {
+#return = X
+} #se não colocar o return ele vai retornar o ultimo valor que ele encontrar na expressão.
 
 ######################################################13/02/2022
 
