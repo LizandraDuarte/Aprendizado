@@ -445,6 +445,22 @@ seq(from = 1, to = 8)  # vetor de 1 ate 8. Mas eu posso definir o número de dad
 
  seq(from = 1, to = 8), length = 1800 
 
+#Para criar uma função de tabela
+estattabble<-function(x) {
+    a1 <- mean(x)
+    a2 <- median(x)
+    a3 <- sd(x) 
+    a5 <- max(x)
+    a4 <- min(x)
+    d <- data.frame(c(a1,a2,a3,a4,a5))
+    rownames(d) <-c("Média", "mediana", "sd",  "minimo", "maximo") 
+    colnames(d) <-c("estatisticas da variável")
+ d 
+ }
+return(d) #vai trazer tabela
+estattabble(ipca$ipca)
+
+
 
 
 
