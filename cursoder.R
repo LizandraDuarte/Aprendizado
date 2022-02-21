@@ -8,10 +8,10 @@
 #Atribuição de valor
 =
 <-
-# os doissimbolos acima geram o mesmo resultado ex:
+# os dois simbolos acima geram o mesmo resultado ex:
 delta <- 8
 delta = 8
- ####Declaração de variável ocorre de forma implicita conforme o dado
+ #### Declaração de variável ocorre de forma implicita conforme o dado
 delta <- 8 # definiu q ela é tipo real (um valor continuo que suporta casa decimal)
 delata <- 8L # a letra "L" é para atribuir  8 um valor inteiro
 logico <- TRUE #P/ valores lógicos usa TRUE or FALSE me maiusculo ou abreviação T ou F
@@ -441,7 +441,9 @@ colbind()# acrescenta uma linha a um conjuto de dados
 predict() #preve
 ~ #para formulas, separa as variaveis dependentes das variáveis independentes
 # se eu for usar todas as demais variaveis como independente é só por um ponto depois de ~ ex: variavel independente ~ . 
-  
+seq(from = 1, to = 8)  # vetor de 1 ate 8. Mas eu posso definir o número de dados que eu quero entre um valor e 8
+
+ seq(from = 1, to = 8), length = 1800 
 
 
 
@@ -450,3 +452,10 @@ predict() #preve
 #Curso formação para cientista de dados com pythin e R - Fernando Amaral - UDEMY
 #https://www.ufjf.br/rogerio_mattos/ensino/cursosrsm/
 #CHIANG, A. C.; WAINWRIGHT, K. Matemática para economistas. 4ª. São Paulo: Elsevier, 2005.
+########################################################################
+
+# R notebook
+#para criar um novo bloco > ctrl + alt + i
+#Para executar a linha > ctrl + enter
+#Para executar o bloco todo > ctrl + shift + enter
+
